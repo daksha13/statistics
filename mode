@@ -1,0 +1,36 @@
+# Mode of grouped data
+
+import pandas as pd
+
+data_frame = pd.DataFrame.from_dict({'low_range': [0, 10, 20, 30, 40, 50, 60, 70], 'high_range': [10, 20, 30, 40, 50, 60, 70, 80], 'frequency': [40, 53, 58, 64, 72, 49, 36, 25]})
+
+max_frequency = data_frame['frequency'].max()
+
+index = data_frame['frequency'].idxmax()
+L1 = data_frame['low_range'][index]
+frequency_before = data_frame['frequency'][index - 1]
+frequency_after = data_frame['frequency'][index + 1]
+width = data_frame['high_range'][index + 1] - data_frame['low_range'][index + 1]
+grp_mode = L1 + ((max_frequency - frequency_before)/((max_frequency - frequency_before) + (max_frequency - frequency_after))) * width
+
+grp_mode = round(grp_mode)
+
+print("Maximum frequency is :", max_frequency)
+print("Index of maximum frequency is :", index)
+print("Lower Boundary is :", L1)
+print("Frequency before modal class is :", frequency_before)
+print("Frequency after modal class is :", frequency_after)
+print("Width is :", width)
+
+print("Mode of grouped data is :", grp_mode)
+
+
+# Mode of ungrouped data
+
+import statistics
+
+# list of ungrouped data
+list = [46, 25, 72, 18, 94, 51, 18]
+ungrp_mode = statistics.mode(list)
+
+print("Mode of ungrouped data,", list, "is :", ungrp_mode)
