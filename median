@@ -1,0 +1,37 @@
+# Median of grouped data
+
+import pandas as pd
+
+data_frame = pd.DataFrame.from_dict({'low_range':[10, 15, 20, 25, 30, 35], 'high_range':[15, 20, 25, 30, 35, 40], 'frequency':[11, 20, 35, 20, 8, 6]})
+
+N = data_frame['frequency'].sum()
+index = abs(data_frame['frequency'].cumsum() - N/2).idxmin()
+L1 = data_frame['low_range'][index + 1]
+cf_before = data_frame['frequency'].cumsum()[index]
+freq_medain = data_frame['frequency'][index + 1]
+width = data_frame['high_range'][index + 1] - data_frame['low_range'][index + 1]
+
+grp_median = int(L1 + (N/2 - cf_before ) / freq_medain * width)
+
+print("Median of grouped data is :", grp_median)
+
+
+# Median of ungrouped data
+
+# list of ungrouped data
+list = [13, 25, 72, 18, 94, 46, 51]
+
+list.sort()
+list_length = len(list)
+
+if list_length % 2 == 0:
+    index1 = int(list_length/2)
+    value1 = list[index1 - 1]
+    index2 = int((list_length/2) + 1)
+    value2 = list[index2 - 1]
+    ungrp_median = int((value1 + value2)/2)
+else:
+    index1 = int((list_length + 1)/2)
+    ungrp_median =  list[index1 - 1]
+
+print("Median of ungrouped data,", list, "is :", ungrp_median)
