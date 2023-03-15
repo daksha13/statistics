@@ -1,14 +1,3 @@
-"""
-a. Give the demonstration of grouped and ungrouped dataset of the following:
-    1) Arithmetic Mean
-    2) Harmonic Mean
-    3) Geometric Mean
-    4) Mode
-    5) Median
-    with the help of python programming and its libraries
-"""
-
-
 # Arithmetic Mean of grouped data
 
 # lists of grouped data
