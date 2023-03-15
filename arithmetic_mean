@@ -1,0 +1,36 @@
+# Arithmetic Mean of grouped data
+
+# lists of grouped data
+marks = ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60']
+no_of_students = [5, 10, 25, 30, 20, 10]
+
+i=0
+sum_of_f = 0
+sum_of_fm = 0
+length = len(no_of_students)
+
+while i < length:
+    list1 = marks[i]
+    list2 = no_of_students[i]
+    line = list1.split('-')
+    start_marks = int(line[0])
+    end_marks = int(line[1])
+    mid_point = (start_marks + end_marks)/2
+    sum_of_f = sum_of_f + list2
+    sum_of_fm = sum_of_fm + (list2 * mid_point)
+    i += 1
+
+grp_arithmetic_mean = sum_of_fm/sum_of_f
+
+print("Arithmetic Mean of grouped data is:", grp_arithmetic_mean)
+
+
+# Arithmetic Mean of ungrouped data
+
+import statistics
+
+# list of ungrouped data
+list = [46, 25, 72, 18, 94, 51, 18]
+ungrp_arithmetic_mean = statistics.mean(list)
+
+print("Arithmetic Mean of ungrouped data,", list , "is :", ungrp_arithmetic_mean)
