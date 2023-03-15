@@ -1,17 +1,4 @@
-# b. Give the demonstration of bar graph and histogram using python programming.
-
-
-# Q2.
-
-'''
-import pandas as pd
-import seaborn as sb
-import matplotlib.pyplot as plot
-#df = pd.read_csv('Book1.csv')
-
-sb.histplot(df['Age'], kde=False)
-plot.show()
-'''
+# Demonstration of bar graph and histogram using python programming.
 
 import pandas as pd
 import seaborn as sb
